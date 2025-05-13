@@ -10,3 +10,16 @@ class Film(models.Model):
      
     def __str__(self):
        return self.title
+    
+
+class reviews(models.Model):
+    films_choice = models.ForeignKey(Film, on_delete=models.CASCADE,related_name='reviews')
+    user_name = models.CharField(max_length=100,verbose_name='Как вас зовут?')
+    text = models.TextField(verbose_name='Как вам фильм?')
+
+    def __str__(self):
+        return f'{self.films_choice}-{self.user_name}'
+    
+    class Meta:
+        verbose_name = 'коментарий'
+        verbose_name_plural = 'коментарии'
