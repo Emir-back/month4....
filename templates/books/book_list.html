@@ -15,21 +15,23 @@
 {% include 'components/header.html' %}
 
 <!-- Карточки фильмов -->
-<section class="cards">
+
+<section class="cards"> 
     {% for i in film %}
         <div class="card">
             <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/10592371/f099e8e4-0168-4245-aec4-5fc131176197/220x330"
                  alt="{{ i.title }}">
-            <h3><a href="#">{{ i.title }}</a></h3>
+            <a href="{% url 'film_detail' i.id %}">{{ i.title }}</a>
             <p>{{ i.description }}</p>
             <div class="card-buttons">
-                <button class="delete"><a href="#">Удалить</a></button>
-                <button class="edit"><a href="#">Изменить</a></button>
+                <button class="delete"><a href="{% url 'delete_film' i.id %}" >Удалить</a> </a></button>
+                <button class="delete"><a href="{% url 'create_film' %}">Добавить</a></button>
+                <button class="edit"><a href="{% url 'update_film' i.id %}">Изменить</a></button>
             </div>
         </div>
     {% endfor %}
 </section>
-
+    
 <!-- Футер -->
 {% include 'components/footer.html' %}
 

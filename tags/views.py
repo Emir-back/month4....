@@ -14,7 +14,7 @@ def all_products_view(request):
     return render(request, 'tags/all_products.html', context)
 
 def meal_view(request):
-    meal = models.Product.objects.all().order_by('-id').filter(tags_name='Еда')
+    meal = models.Product.objects.all().order_by('-id').filter(tags__name='Еда')
     context = {
         'meal': meal,
     }
