@@ -19,15 +19,15 @@
 <div class="film-detail">
     <div class="film-info">
         <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/10592371/f099e8e4-0168-4245-aec4-5fc131176197/220x330"
-             alt="{{film_id.title}}" class="film-poster">
+             alt="{{  object.title}}" class="film-poster">
         <div class="film-text">
             <h1>Название фильма</h1>
-            <p><strong>Дата выпуска:</strong> {{film_id.relase_date}} </p>
-            <p><strong>Жанр:</strong> {{ film_id.genre}}</p>
-            <p><strong>Директор:</strong> {{ film_id.author}}</p>
-            <p><strong>Описание:</strong> {{film_id.description}}</p>
+            <p><strong>Дата выпуска:</strong> {{object .relase_date}} </p>
+            <p><strong>Жанр:</strong> {{ object.genre}}</p>
+            <p><strong>Директор:</strong> {{ object.author}}</p>
+            <p><strong>Описание:</strong> {{object.description}}</p>
         </div>
-            <iframe width="640" height="420" src="{{film_id.trailer_url}}" frameborder="0"></iframe>
+            <iframe width="640" height="420" src="{{object.trailer_url}}" frameborder="0"></iframe>
 
     </div>
 
@@ -36,7 +36,7 @@
         <h2>Комментарии</h2>
         <div class="comment-list">
             <!--            цикл открытия-->
-            {% for i in film_id.reviews.all %}
+            {% for i in object.reviews.all %}
             <div class="comment">
                 <p><strong>{{ i.user_name }}</strong> {{i.text}}</p>
             </div>
