@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'first_lesson',
     'films',
-    'tags'
+    'tags',
+    'parser_app'
 
 ]
 

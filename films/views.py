@@ -22,18 +22,20 @@ class UpdateFilmView(generic.UpdateView):
 
     form_class = forms.FilmForm
     success_url = '/films/film_list/'
-
-    def get_object(self,  **kwargs):
-        film_id = self.kwargs.get('id')
-        return get_object_or_404(models.Film, id=film_id)
-    def form_valid(self, form):
-        print(form.cleaned_data)
-        return super(UpdateFilmView, self).form_valid(form=form)
- 
-  
+      
+    def get_object(self,  **kwargs):      
+        film_id = self.kwargs.get('id')      
+        return get_object_or_404(models.Film, id=film_id)      
+    def form_valid(self, form):      
+        print(form.cleaned_data)      
+        return super(UpdateFilmView, self).form_valid(form=form)  
 
 
 
+
+
+      
+      
 # def update_film_view(request, id):
 #     film = get_object_or_404(models.Film, id=id)
 
@@ -74,7 +76,7 @@ class CreateFilmView(generic.CreateView):
     template_name = 'books/create_film.html'
     form_class = forms.FilmForm
     success_url = '/films/film_list/'
-
+ 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super(CreateFilmView, self).form_valid(form=form)
@@ -85,7 +87,7 @@ class CreateFilmView(generic.CreateView):
 # def create_film_view(request):
 #     if request.method == 'POST':
 #         form = forms.FilmForm(request.POST, request.FILES)
-#         if form.is_valid():
+#         if form.is_valid(): 
 #             form.save()  
 #             return HttpResponse('Фильм успешно добавлен')
 #     else:
