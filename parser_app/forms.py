@@ -2,10 +2,12 @@ from django import forms
 from . import models,parser_filmix
 
 class ParserFilmix(forms.Form):
-    MEDIA_CHOICES = ((
-        'filmix.ag','filmix.ag'
+    MEDIA_CHOICES = [
+        ('filmix.ag', 'filmix.ag')
+]
+
     
-    ))
+
 
     media_type = forms.ChoiceField(choices=MEDIA_CHOICES)
 
