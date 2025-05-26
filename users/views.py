@@ -19,3 +19,10 @@ class AuthLoginView(LoginView):
 class AuthLogoutView(LogoutView):
     next_page = reverse_lazy('users:login')
     
+class UserListView(ListView):
+    model = models.CustomUser
+    template_name = 'users/user_list.html'
+    context_object_name = 'user' 
+
+    def get_queryset(self):
+        return self.model.objects.all()

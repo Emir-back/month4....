@@ -15,7 +15,7 @@ class CustomRegisterForm(UserCreationForm):
     gender = forms.ChoiceField(choices=GENDER, required=True)
 
     class Meta:
-        model = models.CustomUser,
+        model = models.CustomUser
         fields = ('username', 'phone_number', 'age', 'email', 'gender','password1','password2','first_name','last_name' )
         def save(self, commit=True):
             user = super().save(commit=False)
