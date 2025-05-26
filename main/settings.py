@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'first_lesson',
     'films',
     'tags',
-    'parser_app'
+    'parser_app',
+    'users'
 
 ]
 
@@ -42,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'users.middlewares(1).AgeClubMiddleware',
 
 ]
 
