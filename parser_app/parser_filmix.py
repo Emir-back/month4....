@@ -13,20 +13,26 @@ def get_html(url,params=''):
     return request 
 
 def get_data(html):
-    bs = BS(html,features= 'html.parser')
-    items = bs.find_all('div',class_='container category_slider')
+    bs = BS(html, features='html.parser')
+    items = bs.find_all('div', class_='container category_slider')
     filmix_list = []
 
     for item in items:
-        title = item.find("div", class_='shortstory-title').get_text(strip=True)
-        filmix_list.append({
-            'title':title
-        })
+        title_block = item.find("div", class_='shortstory-title')
+        if title_block:
+            title = title_block.get_text(strip=True)
+            filmix_list.append({
+                'title': title
+            })
+        else:
+            print("⚠️ 'shortstory-title' не найден в элементе.")
+    
     return filmix_list
+
 
 def parsing_filmix():
     response = get_html(url)
-    if requests.status_code == 200:
+    if response.status_code == 200:
         filmix_list_2 = []
         for page in range(1,10):
             response = get_html('https://filmix.my/seria/', params={'page':page})
