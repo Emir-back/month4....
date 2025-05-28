@@ -4,7 +4,7 @@
                 <li><a href="{% url 'index'%}">Главная</a></li>
                 <li><a href="{% url 'all_product'%}">Хэштеги</a></li>
                 <li><a href="{% url 'film_list' %}">Фильмы</a></li>
-                <li><a href="parser_films/parser_film_list.html">Другие фильмы</a></li>
+                <li><a href="{% url 'parser_list' %}">Другие фильмы</a></li>
                 <li><a href="{% url 'parser_form'%}">Парсинг</a></li>
                 <li><a href="{% url 'users:register'  %}">Регистрация</a></li>
                 <li><a href="{% url 'users:login'  %}">Войти</a></li>

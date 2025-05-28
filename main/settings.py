@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'films',
     'tags',
     'parser_app',
-    'users'
+    'users',
+    'foods'
 
 ]
 
