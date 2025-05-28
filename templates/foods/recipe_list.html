@@ -1,0 +1,14 @@
+<h1>Список рецептов</h1>
+{% if recipes %}
+<ul>
+  {% for recipe in recipes %}
+    <li>
+      {{ recipe.title }}
+      <a href="{% url 'recipe-detail' recipe.pk %}">Просмотреть</a>
+      <a href="{% url 'recipe-delete' recipe.pk %}">Удалить</a>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>Нет рецептов.</p>
+{% endif %}

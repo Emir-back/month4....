@@ -1,0 +1,15 @@
+<h2>{{ recipe.title }}</h2>
+<p>{{ recipe.description }}</p>
+
+<h3>Ингредиенты:</h3>
+<ul>
+  {% for ingredient in recipe.ingredients.all %}
+    <li>{{ ingredient.name }} — {{ ingredient.quantity }}</li>
+  {% empty %}
+    <li>Нет ингредиентов.</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'ingredient-add' %}">Добавить ингредиент</a>
+<a href="{% url 'recipe-list' %}">Назад</a>
+
